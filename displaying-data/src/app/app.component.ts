@@ -13,6 +13,13 @@ import {Hero} from "./hero";
       </li>
     </ul>
     <p *ngIf="heroes.length > 3 ">There are many heroes!</p>
+    <app-click-me></app-click-me>
+    <app-keyup></app-keyup>
+    <app-loop-back></app-loop-back>
+    <app-keyup2></app-keyup2>
+    <app-keyup3></app-keyup3>
+    <app-keyup4></app-keyup4>
+    <app-little-tour></app-little-tour>
   `
 })
 export class AppComponent {
