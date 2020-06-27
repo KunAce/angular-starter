@@ -10,6 +10,7 @@ import { Keyup2Component } from './keyup2/keyup2.component';
 import { Keyup3Component } from './keyup3/keyup3.component';
 import { Keyup4Component } from './keyup4/keyup4.component';
 import { LittleTourComponent } from './little-tour/little-tour.component';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LittleTourComponent } from './little-tour/little-tour.component';
     Keyup2Component,
     Keyup3Component,
     Keyup4Component,
-    LittleTourComponent
+    LittleTourComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule
