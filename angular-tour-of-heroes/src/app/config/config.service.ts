@@ -1,33 +1,35 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpResponse} from "@angular/common/http";
-import { Observable, throwError } from "rxjs";
-import { catchError, retry } from "rxjs/operators";
+import {HttpClient, HttpResponse} from '@angular/common/http';
+
+import { Observable } from "rxjs";
 
 export interface Config {
   heroesUrl: string;
   textfile: string;
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ConfigService {
-  configUrl = "assets/config.json";
+  configUrl = 'assets/config.json';
 
   constructor(private http: HttpClient) { }
 
-  getConfig_v1() {
+  getConfig() {
+    return this.http.get<Config>(this.configUrl);
+  }
+
+  getConfig_1() {
     return this.http.get(this.configUrl);
   }
 
-  getConfig_v2() {
+  getConfig_2() {
     // now returns an Observable of Config
     return this.http.get<Config>(this.configUrl);
   }
 
   getConfigResponse(): Observable<HttpResponse<Config>> {
     return this.http.get<Config>(
-      this.configUrl, {observe: 'response'}
+      this.configUrl, {observe:'response'}
     );
   }
 
