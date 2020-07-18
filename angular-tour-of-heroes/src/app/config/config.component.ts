@@ -40,6 +40,20 @@ export class ConfigComponent {
       .subscribe((data: Config) => this.config = { ...data });
   }
 
+  showConfigResponse() {
+    this.configService.getConfigResponse()
+    // resp is of type 'HttpResponse<Config>'
+      .subscribe(resp => {
+        // display its headers
+        const keys = resp.headers.keys();
+        this.headers = keys.map(key =>
+        `${key}: ${resp.headers.get(key)}`);
+
+        // access the body directly, which is types as 'Config'.
+        this.config = { ... resp.body };
+      });
+  }
+
 
 
 }

@@ -27,6 +27,8 @@ export class ConfigService {
     return this.http.get<Config>(this.configUrl);
   }
 
+
+
   getConfigResponse(): Observable<HttpResponse<Config>> {
     return this.http.get<Config>(
       this.configUrl, {observe:'response'}

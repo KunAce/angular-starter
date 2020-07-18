@@ -14,6 +14,7 @@ import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
 import {InMemoryDataService} from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { ConfigComponent } from './config/config.component';
+import { DownloaderComponent } from './downloader/downloader.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ConfigComponent } from './config/config.component';
     MessagesComponent,
     DashboardComponent,
     HeroSearchComponent,
-    ConfigComponent
+    ConfigComponent,
+    DownloaderComponent
   ],
     imports: [
         HttpClientModule,
