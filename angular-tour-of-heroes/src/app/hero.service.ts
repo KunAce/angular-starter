@@ -2,8 +2,15 @@ import { Injectable } from '@angular/core';
 import {Hero} from "./hero";
 import { Observable, of} from 'rxjs';
 import {MessageService} from "./message.service";
-import {HttpClient,HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {catchError, map, tap} from "rxjs/operators";
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':"application/json",
+    'Authorization':"my-auth-token"
+  })
+}
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +42,8 @@ export class HeroService {
 
   /** PUT: update the hero on the server */
   updateHero(hero: Hero): Observable<any> {
+    httpOptions.headers = httpOptions.headers.set('Authorization','my-new-auth-token');
+
     return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
       tap(_ => this.log(`updated hero id=${hero.id}`)),
       catchError(this.handleError<any>('updateHero'))
@@ -65,7 +74,8 @@ export class HeroService {
   }
 
   /* GET heroes whose name contains search term */
-  searchHeroes(term: string): Observable<Hero[]> {
+  searchHeroes_v1(term: string): Observable<Hero[]> {
+    // From 'angular-tour-of-heroes' tutorial
     if (!term.trim()) {
       // if not search term, return empty hero array.
       return of([]);
@@ -79,7 +89,18 @@ export class HeroService {
     );
   }
 
+  searchHeroes(term: string): Observable<Hero[]> {
+    term = term.trim();
 
+    // Add safe, URL encode search parameter if there is a search term
+    const options = term ?
+      { params: new HttpParams().set('name', term)}: {};
+
+    return this.http.get<Hero[]>(this.heroesUrl, options)
+      .pipe(
+        catchError(this.handleError<Hero[]>('searchHeroes',[]))
+      );
+  }
 
   /**
    * Handle Http operation that failed.
