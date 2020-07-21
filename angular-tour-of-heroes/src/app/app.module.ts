@@ -15,6 +15,7 @@ import {InMemoryDataService} from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { ConfigComponent } from './config/config.component';
 import { DownloaderComponent } from './downloader/downloader.component';
+import {httpInterceptorProviders} from "./http-interceptors";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { DownloaderComponent } from './downloader/downloader.component';
         InMemoryDataService, {dataEncapsulation: false}
       )
     ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

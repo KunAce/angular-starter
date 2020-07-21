@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 
 /** Pass untouched request through to the next request handler. */
 @Injectable()
-export class NoopInterceptorInterceptor implements HttpInterceptor {
+export class NoopInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler):
     Observable<HttpEvent<any>> {
