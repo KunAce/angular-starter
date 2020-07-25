@@ -17,6 +17,7 @@ import { ConfigComponent } from './config/config.component';
 import { DownloaderComponent } from './downloader/downloader.component';
 import {httpInterceptorProviders} from "./http-interceptors";
 import { PackageSearchComponent } from './package-search/package-search.component';
+import { UploaderComponent } from './uploader/uploader.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PackageSearchComponent } from './package-search/package-search.componen
     HeroSearchComponent,
     ConfigComponent,
     DownloaderComponent,
-    PackageSearchComponent
+    PackageSearchComponent,
+    UploaderComponent
   ],
     imports: [
         HttpClientModule,
