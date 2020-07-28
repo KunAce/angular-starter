@@ -119,4 +119,53 @@ describe('HttpClient testing', () => {
     req.flush(emsg, {status: 404, statusText:'Not Found'});
   });
 
+  it('can test for network error', () => {
+    const emsg = 'simulated network error';
+
+    httpClient.get<Data[]>(testUrl).subscribe(
+      data => fail('should have failed with the network error'),
+      (error: HttpErrorResponse) => {
+        expect(error.error.message).toEqual(emsg, 'message');
+    }
+    );
+
+    const req = httpTestingController.expectOne(testUrl);
+
+    // Create mock ErrorEvent, raised when something goes wrong at the network level.
+    // Connection timeout, DNS error, offline, etc
+    const mockError = new ErrorEvent('Network error', {
+      message: emsg,
+      // The rest of this is optional and not used.
+      // Just showing that you could provide this too.
+      filename: 'HeroService.ts',
+      lineno: 42,
+      colno: 21
+    });
+
+    // Respond with mock error
+    req.error(mockError);
+  });
+
+  it('httpTestingController.verify should fail if HTTP response not simulated',
+    () => {
+    // Sends request
+      httpClient.get('some/api').subscribe();
+
+      // verify() should fail because haven't handled the pending request.
+      expect(() => httpTestingController.verify()).toThrow();
+
+      // Now get and flush the request so that afterEach() doesn't fail
+      const req = httpTestingController.expectOne('some/api');
+      req.flush(null);
+    });
+
+  // Proves that verify in afterEach() really would catch error
+  // if test doesn't simulate the HTTP response.
+  //
+  // Must disable this test because can't catch an error in an afterEach().
+  // Uncomment if you want to confirm that afterEach() does the job.
+  // it('afterEach() should fail when HTTP response not simulated', () => {
+  //   // Sends request which is never handled by this test
+  //   httpClient.get('some/api').subscribe();
+  // });
 });
