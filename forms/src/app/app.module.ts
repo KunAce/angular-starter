@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { NameEditorComponent } from './name-editor/name-editor.component';
 import { ReactiveFormsModule } from "@angular/forms";
 import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
+import { HeroFormTemplateComponent } from './hero-form-template/hero-form-template.component';
+import { HeroFormReactiveComponent } from './hero-form-reactive/hero-form-reactive.component';
 
 
 @NgModule({
@@ -12,6 +14,8 @@ import { ProfileEditorComponent } from './profile-editor/profile-editor.componen
     AppComponent,
     NameEditorComponent,
     ProfileEditorComponent,
+    HeroFormTemplateComponent,
+    HeroFormReactiveComponent,
   ],
   imports: [
     BrowserModule,
