@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {UniqueAlterEgoValidator} from "../shared/alter-ego.directive";
 import {forbiddenNameValidator} from "../shared/forbidden-name.directive";
-import {identityRevealedValidator} from "../shared/identity-revealed.directive";
 
 @Component({
   selector: 'app-hero-form-reactive',
@@ -31,7 +30,7 @@ export class HeroFormReactiveComponent implements OnInit {
         updateOn: 'blur'
       }),
       'power': new FormControl(this.hero.power, Validators.required)
-    }, {validators: identityRevealedValidator}); // <- add custom validator at the FormGroup level
+    });
   }
 
   get name() { return this.heroForm.get('name');}
