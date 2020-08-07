@@ -2,7 +2,7 @@
   <h1>Reactive Form</h1>
   <form [formGroup]="heroForm" #formDir="ngForm">
     <div [hidden]="formDir.submitted">
-      <div class="cross-validation" [class.cross-validation-error]="heroForm.errors?.identityRevealed && (heroForm.touched || heroForm.dir)">
+      <div class="cross-validation" [class.cross-validation-error]="heroForm.errors?.identityRevealed && (heroForm.touched || heroForm.dirty)">
 
         <div class="form-group">
           <label for="name">Name</label>
