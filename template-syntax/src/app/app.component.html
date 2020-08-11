@@ -1,6 +1,7 @@
 <h1>Template Syntax</h1>
 <a href="#interpolation">Interpolation</a><br>
 <a href="#expression-context">Expression context</a><br>
+<a href="#statement-context">Statement context</a><br>
 
 <!--Interpolation and expressions-->
 <hr><h2 id="interpolation">Interpolation</h2>
@@ -37,6 +38,31 @@
 <div (keyup)="0" class="context">
   Type something:
   <input #heroInput>{{heroInput.value}}
+</div>
+
+<a class="to-toc" href="#toc">top</a>
+
+<hr><h2 id="statement-context">Statement context</h2>
+
+<p>Component statement context ( (click)="onSave()")</p>
+<div class="context">
+  <button (click)="deleteHero()">Delete hero</button>
+</div>
+
+<p>Template $event statement context</p>
+<div class="context">
+  <button (click)="onSave($event)">Save</button>
+</div>
+
+<p>Template input variable statement context (let hero)</p>
+<!--template hides the following; plenty of examples later-->
+<div class="context">
+  <button *ngFor="let hero of heroes" (click)="deleteHero(hero)">{{hero.name}}</button>
+</div>
+
+<p>Template reference variable statement context (#heroForm)</p>
+<div class="context">
+  <form #heroForm (ngSubmit)="onSubmit(heroForm)"> ... </form>
 </div>
 
 <a class="to-toc" href="#toc">top</a>
