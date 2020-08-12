@@ -2,6 +2,7 @@
 <a href="#interpolation">Interpolation</a><br>
 <a href="#expression-context">Expression context</a><br>
 <a href="#statement-context">Statement context</a><br>
+<a href="#mental-model">Mental Model</a><br>
 
 <!--Interpolation and expressions-->
 <hr><h2 id="interpolation">Interpolation</h2>
@@ -66,3 +67,26 @@
 </div>
 
 <a class="to-toc" href="#toc">top</a>
+
+<!--New Mental Model-->
+<hr><h2 id="mental-model">New Mental Model</h2>
+
+<div class="special">Mental Model</div>
+<img src="assets/images/hero.png">
+<button>Save</button>
+<br><br>
+
+<div>
+<!--  Normal HTML-->
+  <div class="special">Mental Model</div>
+<!--  Wow! A new element!-->
+  <app-hero-detail></app-hero-detail>
+</div>
+
+<div>
+<!--  Bind button disabled state to `isUnchanged` property-->
+  <button [disabled]="isUnchanged">Save</button>
+</div>
+<br><br>
+
+
