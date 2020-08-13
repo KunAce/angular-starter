@@ -3,6 +3,8 @@
 <a href="#expression-context">Expression context</a><br>
 <a href="#statement-context">Statement context</a><br>
 <a href="#mental-model">Mental Model</a><br>
+<a href="#buttons">Buttons</a><br>
+<a href="#prop-vs-attrib">Properties vs. Attributes</a><br>
 
 <!--Interpolation and expressions-->
 <hr><h2 id="interpolation">Interpolation</h2>
@@ -89,4 +91,31 @@
 </div>
 <br><br>
 
+<!--buttons-->
+<hr><h2 id="buttons">Buttons</h2>
 
+<button>Enabled (but does nothing)</button>
+<button disabled>Disabled</button>
+<button disabled=false>Still disabled</button>
+<br><br>
+<button disabled>disabled by attribute</button>
+<button [disabled]="isUnchanged">disabled by property binding</button>
+<br><br>
+<button bind-disabled="isUnchanged" on-click="onSave($event)">Disabled Cancel</button>
+<button [disabled]="!canSave" (click)="onSave($event)">Enabled Save</button>
+
+<a class="to-toc" href="#toc">top</a>
+
+<!--property vs. attribute-->
+<hr><h2 id="prop-vs-attrib">Property vs. Attribute (img examples)</h2>
+<!--examine the following <img> tag in the browser tools-->
+<img src="images/ng-logo.png"
+  [src]="heroImageUrl">
+
+<br><br>
+
+<img [src]="iconUrl"/>
+<img bind-src="heroImageUrl"/>
+<img [attr.src]="villainImageUrl">
+
+<a class="to-toc" href="#toc">top</a>
