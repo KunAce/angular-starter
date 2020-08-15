@@ -12,6 +12,9 @@
   <a href="#class-binding">Class Binding</a><br>
   <a href="#style-binding">Style Binding</a>
 </div>
+<br>
+<a href="#event-binding">Event Binding</a><br>
+<br>
 
 <!--Interpolation and expressions-->
 <hr><h2 id="interpolation">Interpolation</h2>
@@ -186,5 +189,43 @@
 
 <button [style.font-size.em]="isSpecial ? 3:1">Big</button>
 <button [style.font-size.%]="!isSpecial ? 150:30">Small</button>
+
+<a class="to-toc" href="#toc">top</a>
+
+<!--event binding-->
+<hr><h2 id="event-binding">Event Binding</h2>
+
+<button (click)="onSave()">Save</button>
+
+<button on-click="onSave()">On Save</button>
+
+<div>
+<!--  `myClick` is an event on the custom `ClickDirective`-->
+  <div (myClick)="clickMessage=$event" clickable>click with myClick</div>
+  {{clickMessage}}
+</div>
+
+<!--binding to a nested component-->
+<app-hero-detail (deleteRequest)="deleteHero($event)" [hero]="currentHero"></app-hero-detail>
+<br>
+
+<app-big-hero-detail
+  (deleteRequest)="deleteHero($event)"
+  [hero]="currentHero">
+</app-big-hero-detail>
+
+<div class="parent-div" (click)="onClickMe($event)" clickable>Click me
+  <div class="child-div">Click me too!</div>
+</div>
+
+<!--Will save only once-->
+<div (click)="onSave()" clickable>
+  <button (click)="onSave($event)">Save, no propagation</button>
+</div>
+
+<!--Will save twice-->
+<div (click)="onSave()" clickable>
+  <button (click)="onSave()">Save w/ propagation</button>
+</div>
 
 <a class="to-toc" href="#toc">top</a>

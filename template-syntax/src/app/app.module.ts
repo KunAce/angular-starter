@@ -2,12 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HeroDetailComponent } from './hero-detail.component';
+import {BigHeroDetailComponent, HeroDetailComponent} from './hero-detail.component';
+import { ClickDirective } from './click.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroDetailComponent
+    HeroDetailComponent,
+    ClickDirective,
+    BigHeroDetailComponent
   ],
   imports: [
     BrowserModule
