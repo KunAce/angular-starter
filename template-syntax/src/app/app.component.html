@@ -14,6 +14,7 @@
 </div>
 <br>
 <a href="#event-binding">Event Binding</a><br>
+<a href="#two-way">Two-way Binding</a><br>
 <br>
 
 <!--Interpolation and expressions-->
@@ -226,6 +227,20 @@
 <!--Will save twice-->
 <div (click)="onSave()" clickable>
   <button (click)="onSave()">Save w/ propagation</button>
+</div>
+
+<a class="to-toc" href="#toc">top</a>
+
+<hr><h2 id="two-way">Two-way Binding</h2>
+<div id="two-way-1">
+  <app-sizer [(size)]="fontSizePx"></app-sizer>
+  <div [style.font-size.px]="fontSizePx">Resizable Text</div>
+  <label>FontSize (px): <input [(ngModel)]="fontSizePx"></label>
+</div>
+<br>
+<div id="two-way-2">
+  <h3>De-sugared two-way binding</h3>
+  <app-sizer [size]="fontSizePx" (sizeChange)="fontSizePx=$event"></app-sizer>
 </div>
 
 <a class="to-toc" href="#toc">top</a>
