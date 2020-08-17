@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import {BigHeroDetailComponent, HeroDetailComponent} from './hero-detail.component';
 import { ClickDirective } from './click.directive';
 import { SizerComponent } from './sizer.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -14,9 +15,10 @@ import { SizerComponent } from './sizer.component';
     BigHeroDetailComponent,
     SizerComponent
   ],
-  imports: [
-    BrowserModule
-  ],
+    imports: [
+        BrowserModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
