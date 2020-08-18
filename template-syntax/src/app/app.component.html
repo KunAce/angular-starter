@@ -272,3 +272,47 @@ bindon-ngModel
 [ngModelChange]="setUppercaseName($event)"
 
 <a class="to-toc" href="#toc">top</a>
+
+<!--NgClass binding-->
+<hr><h2 id="ngClass">NgClass Binding</h2>
+
+<p>currentClasses is {{currentClasses | json}}</p>
+<div [ngClass]="currentClasses">This div is initially saveable, unchanged, and special</div>
+
+<!--not used in chapter-->
+<br>
+<label>saveable <input type="checkbox" [(ngModel)]="canSave"></label> |
+<label>modified: <input type="checkbox" [value]="!isUnchanged" (change)="isUnchanged=!isUnchanged"></label> |
+<label>special: <input type="checkbox" [(ngModel)]="isSpecial"></label>
+<button (click)="setCurrentClasses()">Refresh currentClasses</button>
+<br><br>
+<div [ngClass]="currentClasses">
+  This div should be {{ canSave ? "": "not"}} saveable,
+  {{ isUnchanged ? "unchanged":"modified"}} and,
+  {{ isSpecial ? "": "not"}} special after clicking
+  "Refresh".
+</div>
+<br><br>
+
+<div [ngClass]="isSpecial ? 'special' : ''">This div is special</div>
+
+<div class="bad curly special">Bad curly special</div>
+<div [ngClass]="{'bad':false, 'curly':true,'special':true}">Curly special</div>
+
+<a class="to-toc" href="#toc">top</a>
+
+<!--not used in chapter-->
+<br>
+<label>italic: <input type="checkbox" [(ngModel)]="canSave"></label> |
+<label>normal: <input type="checkbox" [(ngModel)]="isUnchanged"></label> |
+<label>xlarge: <input type="checkbox" [(ngModel)]="isSpecial"></label>
+<button (click)="setCurrentStyles()">Refresh currentStyles</button>
+<br><br>
+<div [ngStyle]="currentStyles">
+  This div should be {{ canSave ? "italic":"plain"}},
+  {{ isUnchanged ? "normal weight":"bold"}} and,
+  {{ isSpecial ? "extra large": "normal size"}} after clicking
+  "Refresh".
+</div>
+
+<a class="to-toc" href="#toc">top</a>
