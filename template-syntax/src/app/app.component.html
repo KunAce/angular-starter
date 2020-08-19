@@ -16,6 +16,17 @@
 <a href="#event-binding">Event Binding</a><br>
 <a href="#two-way">Two-way Binding</a><br>
 <br>
+<div>Directives</div>
+<div style="margin-left: 8px">
+  <a href="#ngModel">NgModel (two-way) Binding</a><br>
+  <a href="#ngClass">NgClass Binding</a><br>
+  <a href="#ngStyle">NgStyle Binding</a><br>
+  <a href="#ngIf">NgIf</a><br>
+  <a href="#ngFor">NgFor</a><br>
+  <div style="margin-left: 8px">
+    <a href="#ngFor-index">NgFor with index</a><br>
+  </div>
+</div>
 
 <!--Interpolation and expressions-->
 <hr><h2 id="interpolation">Interpolation</h2>
@@ -313,6 +324,68 @@ bindon-ngModel
   {{ isUnchanged ? "normal weight":"bold"}} and,
   {{ isSpecial ? "extra large": "normal size"}} after clicking
   "Refresh".
+</div>
+
+<a class="to-toc" href="#toc">top</a>
+
+<!--NgIf binding-->
+<hr><h2 id="ngIf">NgIf Binding</h2>
+
+<app-hero-detail *ngIf="isActive"></app-hero-detail>
+
+<div *ngIf="currentHero">Hello, {{currentHero.name}}</div>
+<div *ngIf="nullHero">Hello, {{nullHero.name}}</div>
+
+<!--NgIf binding with template (no *)-->
+<ng-template [ngIf]="currentHero">Add {{currentHero.name}} with template</ng-template>
+
+<!--Does not show because isActive is false!-->
+<div>Hero Detail removed from DOM (via template) because isAcitve is false</div>
+<ng-template [ngIf]="isActive">
+  <app-hero-detail></app-hero-detail>
+</ng-template>
+
+<!--isSpecial is true-->
+<div [class.hidden]="!isSpecial">Show with class</div>
+<div [class.hidden]="isSpecial">Hide with class</div>
+
+<!--HeroDetail is in the DOM but hidden-->
+<app-hero-detail [class.hidden]="isSpecial"></app-hero-detail>
+
+<div [style.display]="isSpecial ? 'block' : 'none'">Show with style</div>
+<div [style.display]="isSpecial ? 'none' : 'block'">Hide with style</div>
+
+<a class="to-toc" href="#toc">top</a>
+
+<!--NgFor binding-->
+<hr><h2 id="ngFor">NgFor Binding</h2>
+
+<div class="box">
+  <div *ngFor="let hero of heroes">{{hero.name}}</div>
+</div>
+<br>
+
+<div class="box">
+<!--  *ngFor w/ hero-detail Component-->
+  <app-hero-detail *ngFor="let hero of heroes" [hero]="hero"></app-hero-detail>
+</div>
+
+<a class="to-toc" href="#toc">top</a>
+
+<h4 id="ngFor-index">*ngFor with index</h4>
+<p>with <i>semi-colon</i> separator</p>
+<div class="box">
+  <div *ngFor="let hero of heroes; let i=index">
+    {{i + 1}} - {{hero.name}}
+  </div>
+</div>
+
+<p>with <i>comma</i> separator</p>
+<div class="box">
+<!--  Ex: "1 - Hercules"-->
+  <div *ngFor="let hero of heroes, let i=indxe">
+    {{i + 1}} - {{hero.name}}
+  </div>
 </div>
 
 <a class="to-toc" href="#toc">top</a>
