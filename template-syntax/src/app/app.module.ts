@@ -5,7 +5,8 @@ import { AppComponent } from './app.component';
 import {BigHeroDetailComponent, HeroDetailComponent} from './hero-detail.component';
 import { ClickDirective } from './click.directive';
 import { SizerComponent } from './sizer.component';
-import {FormsModule} from "@angular/forms";
+import { FormsModule} from "@angular/forms";
+import { heroSwitchComponents } from './hero-switch.components';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import {FormsModule} from "@angular/forms";
     HeroDetailComponent,
     ClickDirective,
     BigHeroDetailComponent,
-    SizerComponent
+    SizerComponent,
+    heroSwitchComponents,
   ],
     imports: [
         BrowserModule,
