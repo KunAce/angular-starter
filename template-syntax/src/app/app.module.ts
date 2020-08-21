@@ -7,6 +7,7 @@ import { ClickDirective } from './click.directive';
 import { SizerComponent } from './sizer.component';
 import { FormsModule} from "@angular/forms";
 import { heroSwitchComponents } from './hero-switch.components';
+import { HeroFormComponent } from './hero-form.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { heroSwitchComponents } from './hero-switch.components';
     BigHeroDetailComponent,
     SizerComponent,
     heroSwitchComponents,
+    HeroFormComponent,
   ],
     imports: [
         BrowserModule,
