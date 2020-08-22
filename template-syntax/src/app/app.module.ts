@@ -8,6 +8,7 @@ import { SizerComponent } from './sizer.component';
 import { FormsModule} from "@angular/forms";
 import { heroSwitchComponents } from './hero-switch.components';
 import { HeroFormComponent } from './hero-form.component';
+import { SvgComponent } from './svg.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { HeroFormComponent } from './hero-form.component';
     SizerComponent,
     heroSwitchComponents,
     HeroFormComponent,
+    SvgComponent,
   ],
     imports: [
         BrowserModule,

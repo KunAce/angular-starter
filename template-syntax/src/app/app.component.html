@@ -33,6 +33,10 @@
 <a href="#ref-vars">Template reference variables</a><br>
 <a href="#inputs-and-outputs">Inputs and outputs</a><br>
 <a href="#pipes">Pipes</a><br>
+<a href="#safe-navigation-operator">Safe navigation operator <i>?.</i></a><br>
+<a href="#non-null-assertion-operator">Non-null assertion operator <i>!.</i></a><br>
+<a href="#enums">Enums</a><br>
+<a href="#svg-templates">SVG Templates</a><br>
 
 <!--Interpolation and expressions-->
 <hr><h2 id="interpolation">Interpolation</h2>
@@ -526,4 +530,86 @@ bindon-ngModel
   <label>Price: </label>{{product.price | currency:'USD':'symbol'}}
 </div>
 
+<a class="to-toc" href="#toc">top</a>
+
+<!--Null values and the safe navigation operator-->
+<hr><h2 id="safe-navigation-operator">Safe navigation operator <i>?.</i></h2>
+
+<div>
+  The title is {{title}}
+</div>
+
+<div>
+  The current hero's name is {{currentHero?.name}}
+</div>
+
+<div>
+  The current hero's name is {{currentHero.name}}
+</div>
+
+<!--The null hero's name is {{nullHero.name}}-->
+
+<!--See console log:-->
+<!--TypeError: Cannot read property 'name' of null in [null]-->
+
+<!--No hero, div not displayed, no error-->
+<div *ngIf="nullHero">The null hero's name is {{nullHero.name}}</div>
+
+<div>
+  The null hero's name is {{nullHero && nullHero.name}}
+</div>
+
+<div>
+<!--  No hero, no problem!-->
+  The null hero's name is {{nullHero?.name}}
+</div>
+
+<a class="to-toc" href="#toc">top</a>
+
+<!--non-null assertion operator-->
+<hr><h2 id="non-null-assertion-operator">Non-null assertion operator <i>!.</i></h2>
+
+<div>
+<!--  No hero, no text-->
+  <div *ngIf="hero">
+    The hero's name is {{hero!.name}}
+  </div>
+</div>
+
+<a class="to-toc" href="#toc">top</a>
+
+<!--non-null assertion operator-->
+<hr><h2 id="any-type-cast-function">$any type cast function <i>$any( )</i>.</h2>
+
+<div>
+<!--  Accessing an undeclared member-->
+  <div>
+    The hero's marker is {{$any(hero).marker}}
+  </div>
+</div>
+
+<div>
+<!--  Accessing an undeclared member-->
+  <div>
+    Undeclared members is {{$any(this).member}}
+  </div>
+</div>
+
+<a class="to-toc" href="#toc">top</a>
+
+<!--TODO: discuss this in the Style binding section-->
+<!--enums is bindings-->
+<hr><h2 id="enums">Enums is binding</h2>
+
+<p>
+  The name of the Color.Red enum is {{Color[Color.Red]}}
+  .<br>
+  The current color is {{Color[color]}} and its number is {{color}}.<br>
+  <button [style.color]="Color[color]" (click)="colorToggle()">Enum Toggle</button>
+</p>
+
+<a class="to-toc" href="#toc">top</a>
+
+<hr><h2 id="svg-templates">SVG Templates</h2>
+<app-svg></app-svg>
 <a class="to-toc" href="#toc">top</a>
