@@ -1,4 +1,4 @@
-import { OnInit} from "@angular/core";
+import {OnInit, SimpleChange} from "@angular/core";
 import {Component, Input , Directive} from '@angular/core';
 import {LoggerService} from "./logger.service";
 
@@ -18,8 +18,8 @@ export class PeekABooDirective implements OnInit {
 
 @Component({
   selector: 'peek-a-boo',
-  templateUrl: '<p>Now you see my hero, {{name}}</p>',
-  styleUrls: ['p {background: LightYellow; padding: 8px}']
+  template: '<p>Now you see my hero, {{name}}</p>',
+  styles: ['p {background: LightYellow; padding: 8px}']
 })
 // Don't HAVE to mention the Lifecycle Hook interfaces
 // unless we want typing and tool support.
@@ -36,4 +36,36 @@ export class PeekABooComponent extends PeekABooDirective implements
     this.logIt(`name ${is} known at construction`);
   }
 
+  // only called for/if there is an @input variable set by parent.
+  ngOnChanges(changes: SimpleChange) {
+    let changeMsgs: string[] = [];
+    for (let propName in changes) {
+      if (propName === 'name') {
+        let name = changes['name'].currentValue;
+        changeMsgs.push(`name ${this.verb} to "${name}"`);
+      } else {
+        changeMsgs.push(propName + ' ' + this.verb);
+      }
+    }
+    this.logIt(`OnChanges: ${changeMsgs.join(';')}`);
+    this.verb = 'changed'; // next time it will be a change
+  }
+
+  // Beware! Called frequently!
+  // Called in every change detection cycle anywhere on the page
+  ngDoCheck() {this.logIt(`DoCheck`);}
+
+  ngAfterContentInit() {this.logIt(`AfterContentInit`);}
+
+  // Beware! Called frequently!
+  // Called in every change detection cycle anywhere on the page
+  ngAfterContentChecked() { this.logIt(`AfterContentChecked`);}
+
+  ngAfterViewInit() {this.logIt(`AfterViewInit`);}
+
+  // Beware! Called frequently!
+  // Called in every change detection cycle anywhere on the page
+  ngAfterViewChecked() { this.logIt(`AfterViewChecked`);}
+
+  ngOnDestroy() { this.logIt(`onDestroy`);}
 }
