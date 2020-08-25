@@ -1,4 +1,14 @@
-import {OnInit, SimpleChange} from "@angular/core";
+import {
+  AfterContentChecked,
+  AfterContentInit,
+  AfterViewChecked,
+  AfterViewInit,
+  DoCheck,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+} from "@angular/core";
 import {Component, Input , Directive} from '@angular/core';
 import {LoggerService} from "./logger.service";
 
@@ -24,7 +34,7 @@ export class PeekABooDirective implements OnInit {
 // Don't HAVE to mention the Lifecycle Hook interfaces
 // unless we want typing and tool support.
 export class PeekABooComponent extends PeekABooDirective implements
-  OnInit {
+  OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
   @Input() name: string;
 
   private verb = 'initialized';
@@ -37,7 +47,7 @@ export class PeekABooComponent extends PeekABooDirective implements
   }
 
   // only called for/if there is an @input variable set by parent.
-  ngOnChanges(changes: SimpleChange) {
+  ngOnChanges(changes: SimpleChanges) {
     let changeMsgs: string[] = [];
     for (let propName in changes) {
       if (propName === 'name') {
