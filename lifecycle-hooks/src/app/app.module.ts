@@ -6,7 +6,9 @@ import { PeekABooComponent } from './peek-a-boo.component';
 import { PeekABooParentComponent } from './peek-a-boo-parent.component';
 import { SpyDirective } from './spy.directive';
 import { SpyParentComponent } from './spy.component';
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from "@angular/forms";
+import {CounterParentComponent, MyCounterComponent} from './counter.component';
+import {OnChangesComponent, OnChangesParentComponent} from './on-changes.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,11 @@ import {FormsModule} from "@angular/forms";
     PeekABooComponent,
     PeekABooParentComponent,
     SpyDirective,
-    SpyParentComponent
+    SpyParentComponent,
+    MyCounterComponent,
+    CounterParentComponent,
+    OnChangesComponent,
+    OnChangesParentComponent,
   ],
   imports: [
     BrowserModule,
