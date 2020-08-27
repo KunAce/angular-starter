@@ -9,6 +9,7 @@ import { SpyParentComponent } from './spy.component';
 import { FormsModule } from "@angular/forms";
 import {CounterParentComponent, MyCounterComponent} from './counter.component';
 import {OnChangesComponent, OnChangesParentComponent} from './on-changes.component';
+import {AfterViewComponent, AfterViewParentComponent, ChildViewComponent} from './after-view.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,9 @@ import {OnChangesComponent, OnChangesParentComponent} from './on-changes.compone
     CounterParentComponent,
     OnChangesComponent,
     OnChangesParentComponent,
+    AfterViewComponent,
+    AfterViewParentComponent,
+    ChildViewComponent,
   ],
   imports: [
     BrowserModule,
