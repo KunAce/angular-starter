@@ -10,6 +10,7 @@ import { FormsModule } from "@angular/forms";
 import {CounterParentComponent, MyCounterComponent} from './counter.component';
 import {OnChangesComponent, OnChangesParentComponent} from './on-changes.component';
 import {AfterViewComponent, AfterViewParentComponent, ChildViewComponent} from './after-view.component';
+import {AfterContentComponent, AfterContentParentComponent, ChildComponent} from './after-content.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,9 @@ import {AfterViewComponent, AfterViewParentComponent, ChildViewComponent} from '
     AfterViewComponent,
     AfterViewParentComponent,
     ChildViewComponent,
+    AfterContentComponent,
+    AfterContentParentComponent,
+    ChildComponent,
   ],
   imports: [
     BrowserModule,
