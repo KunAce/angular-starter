@@ -11,6 +11,7 @@ import {CounterParentComponent, MyCounterComponent} from './counter.component';
 import {OnChangesComponent, OnChangesParentComponent} from './on-changes.component';
 import {AfterViewComponent, AfterViewParentComponent, ChildViewComponent} from './after-view.component';
 import {AfterContentComponent, AfterContentParentComponent, ChildComponent} from './after-content.component';
+import {DoCheckComponent, DoCheckParentComponent} from './do-check.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,8 @@ import {AfterContentComponent, AfterContentParentComponent, ChildComponent} from
     AfterContentComponent,
     AfterContentParentComponent,
     ChildComponent,
+    DoCheckComponent,
+    DoCheckParentComponent,
   ],
   imports: [
     BrowserModule,
