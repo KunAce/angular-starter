@@ -1,6 +1,19 @@
-export class Hero {
-  constructor(
-    public id: number,
-    public name: string
-  ) {  }
+// export class Hero {
+//   constructor(
+//     public id: number,
+//     public name: string
+//   ) {  }
+// }
+
+export interface Hero {
+  id: number;
+  name: string;
+  emotion?: string;
 }
+
+export const heroes: Hero[] = [
+  { id: 1, name: 'Dr Nice',  emotion: 'happy'},
+  { id: 2, name: 'Narco',     emotion: 'sad' },
+  { id: 3, name: 'Windstorm', emotion: 'confused' },
+  { id: 4, name: 'Magneta'}
+];

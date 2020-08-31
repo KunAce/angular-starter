@@ -1,13 +1,89 @@
 <h1>My First Attribute Directive</h1>
 
-<h4>Pick a highlight color</h4>
-<div>
-  <input type="radio" name="colors" (click)="color='lightgreen'">Green
-  <input type="radio" name="colors" (click)="color='yellow'">Yellow
-  <input type="radio" name="colors" (click)="color='cyan'">Cyan
-</div>
-<p [appHighlight]="color">Highlight me!</p>
+<!--<h4>Pick a highlight color</h4>-->
+<!--<div>-->
+<!--  <input type="radio" name="colors" (click)="color='lightgreen'">Green-->
+<!--  <input type="radio" name="colors" (click)="color='yellow'">Yellow-->
+<!--  <input type="radio" name="colors" (click)="color='cyan'">Cyan-->
+<!--</div>-->
+<!--<p [appHighlight]="color">Highlight me!</p>-->
 
-<p [appHighlight]="color" defaultColor="violet">
-  Highlight me too!
+<!--<p [appHighlight]="color" defaultColor="violet">-->
+<!--  Highlight me too!-->
+<!--</p>-->
+
+<!--<p>The hero's birthday is {{ birthday | date}}</p>-->
+
+<h1>Structural Directives</h1>
+
+<p>Conditional display of hero</p>
+
+<p>List of heroes</p>
+
+<ul>
+  <li *ngFor="let hero of heroes">{{hero.name}}</li>
+</ul>
+
+<hr>
+
+<h2 id="ngIf">NgIf</h2>
+
+<p *ngIf="true">
+  Expression is true and ngIf is true.
+  This paragraph is in the DOM.
 </p>
+<p *ngIf="false">
+  Expression is false and ngIf is false.
+  This paragraph is not in th DOM.
+</p>
+
+<p [style.display]="'block'">
+  Expression sets display to "block".
+  This paragraph is visible.
+</p>
+
+<p [style.display]="'none'">
+  Expression sets display to "none".
+  This paragraph is hidden but still in the DOM.
+</p>
+
+<h4>NgIf with template</h4>
+<p>&lt;ng-template&gt; element</p>
+<ng-template [ngIf]="hero">
+  <div class="name">{{hero.name}}</div>
+</ng-template>
+
+<hr>
+
+<h2 id="ngFor">NgFor</h2>
+
+<div class="box">
+
+  <p class="code">
+    &lt;div *ngFor="let hero of heroes; let i=index; let odd=odd; trackBy: trackById" [class.odd]="odd"&gt;
+  </p>
+  <div *ngFor="let hero of heroes; let i=index; let odd=odd; trackBy:trackById" [class.odd]="odd">
+    ({{i}}) {{hero.name}}
+  </div>
+
+  <p class="code">
+    &lt;ng-template ngFor let-hero [ngForOf]="heroes" let-i="index" let-odd="odd" [ngForTrackBy]="trackById"/&gt;
+  </p>
+  <ng-template ngFor let-hero [ngForOf]="heroes" let-i="index" let-odd="odd" [ngForTrackBy]="trackById">
+    <div [class.odd]="odd">({{i}}) {{hero.name}}</div>
+  </ng-template>
+
+</div>
+<hr>
+
+<h2 id="ngSwitch">NgSwitch</h2>
+
+<div>Pick your favorite hero</div>
+<p>
+  <label *ngFor="let h of heroes">
+    <input type="radio" name="heroes" [(ngModel)]="hero" [value]="h">{{h.name}}
+  </label>
+  <label><input type="radio" name="heroes" (click)="hero = null">None of the above</label>
+</p>
+
+
