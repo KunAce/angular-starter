@@ -3,7 +3,8 @@ import {Hero, heroes } from "./hero";
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
   // template: `
   // <h1>{{title}}</h1>
   //   <h2>My favorite hero is: {{myHero.name }}</h2>
@@ -38,6 +39,11 @@ export class AppComponent {
   // For structural directive
   heroes = heroes;
   hero = this.heroes[0]
+
+  condition = false;
+  logs: string[] = [];
+  showSad = true;
+  status = 'ready';
 
   trackById(index: number, hero: Hero): number { return hero.id; }
 }

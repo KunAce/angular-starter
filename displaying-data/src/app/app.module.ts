@@ -12,6 +12,12 @@ import { Keyup4Component } from './keyup4/keyup4.component';
 import { LittleTourComponent } from './little-tour/little-tour.component';
 import { HighlightDirective } from './highlight.directive';
 import {FormsModule} from "@angular/forms";
+import {
+  ConfusedHeroComponent,
+  HeroSwitchComponent,
+  SadHeroComponent,
+  UnknownHeroComponent
+} from './hero-switch.component';
 // import { HeroBirthday1Component } from './hero-birthday1/hero-birthday1.component';
 
 @NgModule({
@@ -26,6 +32,10 @@ import {FormsModule} from "@angular/forms";
     Keyup4Component,
     LittleTourComponent,
     HighlightDirective,
+    HeroSwitchComponent,
+    SadHeroComponent,
+    ConfusedHeroComponent,
+    UnknownHeroComponent,
     // HeroBirthday1Component
   ],
   imports: [
