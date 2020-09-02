@@ -14,10 +14,11 @@ import { HighlightDirective } from './highlight.directive';
 import {FormsModule} from "@angular/forms";
 import {
   ConfusedHeroComponent,
-  HeroSwitchComponent,
+  heroSwitchComponents,
   SadHeroComponent,
   UnknownHeroComponent
 } from './hero-switch.component';
+import { UnlessDirective } from './unless.directive';
 // import { HeroBirthday1Component } from './hero-birthday1/hero-birthday1.component';
 
 @NgModule({
@@ -32,10 +33,11 @@ import {
     Keyup4Component,
     LittleTourComponent,
     HighlightDirective,
-    HeroSwitchComponent,
+    heroSwitchComponents,
     SadHeroComponent,
     ConfusedHeroComponent,
     UnknownHeroComponent,
+    UnlessDirective,
     // HeroBirthday1Component
   ],
   imports: [
