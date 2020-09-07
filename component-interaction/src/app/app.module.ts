@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeroChildComponent } from './hero-child.component';
@@ -10,9 +10,10 @@ import { VersionChildComponent } from './version-child.component';
 import { VersionParentComponent } from './version-parent.component';
 import { VoterComponent } from './voter.component';
 import { VoteTakerComponent } from './votetaker.component';
+import { CountdownTimerComponent } from "./countdown-timer.component";
+import { CountdownLocalVarParentComponent, CountdownViewChildParentComponent } from "./countdown-parent.component";
 
-@NgModule({
-  declarations: [
+let directives: any [] = [
     AppComponent,
     HeroChildComponent,
     HeroParentComponent,
@@ -21,12 +22,30 @@ import { VoteTakerComponent } from './votetaker.component';
     VersionChildComponent,
     VersionParentComponent,
     VoterComponent,
-    VoteTakerComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    VoteTakerComponent,
+    CountdownTimerComponent,
+  CountdownLocalVarParentComponent,
+  CountdownViewChildParentComponent,
+];
+
+let schemas: any[] = [];
+
+// Include Countdown examples
+// unless in e2e tests which they break.
+if (!/e2e/.test(location.search)) {
+  console.log('adding countdown timer examples');
+  directives.push(CountdownLocalVarParentComponent);
+  directives.push(CountdownViewChildParentComponent);
+} else {
+  // In e2e test use CUSTOM_ELEMENTS_SCHEMA to suppress unknown element errors
+  schemas.push(CUSTOM_ELEMENTS_SCHEMA);
+}
+
+@NgModule({
+  imports: [BrowserModule],
+  declarations: directives,
+  bootstrap: [AppComponent],
+  schemas: schemas
 })
+
 export class AppModule { }
