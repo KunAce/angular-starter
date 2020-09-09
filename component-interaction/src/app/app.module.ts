@@ -12,6 +12,8 @@ import { VoterComponent } from './voter.component';
 import { VoteTakerComponent } from './votetaker.component';
 import { CountdownTimerComponent } from "./countdown-timer.component";
 import { CountdownLocalVarParentComponent, CountdownViewChildParentComponent } from "./countdown-parent.component";
+import {AstronautComponent} from "./astronaut.component";
+import {MissionControlComponent} from "./mission-control.component";
 
 let directives: any [] = [
     AppComponent,
@@ -26,6 +28,8 @@ let directives: any [] = [
     CountdownTimerComponent,
   CountdownLocalVarParentComponent,
   CountdownViewChildParentComponent,
+  AstronautComponent,
+  MissionControlComponent
 ];
 
 let schemas: any[] = [];
