@@ -4,10 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {CustomerDashboardModule} from "./customer-dashboard/customer-dashboard.module";
 import { UserService } from "./others/user.service";
+import { GreetingComponent } from './greeting/greeting.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GreetingComponent
   ],
   imports: [
     BrowserModule,
