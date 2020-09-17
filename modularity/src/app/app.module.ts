@@ -3,13 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {CustomerDashboardModule} from "./customer-dashboard/customer-dashboard.module";
-import { UserService } from "./others/user.service";
 import { GreetingComponent } from './greeting/greeting.component';
+import { HighlightDirective } from './shared/highlight.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GreetingComponent
+    GreetingComponent,
   ],
   imports: [
     BrowserModule,
