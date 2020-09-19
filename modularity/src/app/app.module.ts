@@ -1,14 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+/* App Root */
 import { AppComponent } from './app.component';
-import {CustomerDashboardModule} from "./customer-dashboard/customer-dashboard.module";
-import { GreetingComponent } from './greeting/greeting.component';
-import { HighlightDirective } from './shared/highlight.directive';
-import { CustomersComponent } from './customers/customers.component';
-import { CustomersDetailComponent } from './customers/customers-detail.component';
-import { CustomersListComponent } from './customers/customers-list.component';
-import {RouterModule} from "@angular/router";
+
+/* Feature Modules */
+import {GreetingModule} from "./greeting/greeting.module";
+import {ContactModule} from "./contact/contact.module";
+
+/* Routing Module */
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -16,10 +17,10 @@ import {RouterModule} from "@angular/router";
   ],
   imports: [
     BrowserModule,
-    CustomerDashboardModule,
-    RouterModule,
+    ContactModule,
+    GreetingModule.forRoot({userName: 'Miss Marple'}),
+    AppRoutingModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
