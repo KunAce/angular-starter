@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Hero } from './hero';
-import { HEROES } from './mock-heroes';
+import { HEROES } from '../mock-heroes';
 import { MessageService } from '../message.service';
 
 @Injectable({
