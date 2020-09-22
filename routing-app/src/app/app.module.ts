@@ -12,11 +12,13 @@ import {Router} from "@angular/router";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FormsModule} from "@angular/forms";
 import {HeroesModule} from "./heroes/heroes.module";
+import { ComposeMessageComponent } from './compose-message/compose-message.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ComposeMessageComponent
   ],
   imports: [
     BrowserModule,
