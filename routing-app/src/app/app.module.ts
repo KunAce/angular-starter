@@ -4,15 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { CrisisCenterComponent } from './crisis-center/crisis-center/crisis-center.component';
-import { CrisisCenterHomeComponent } from './crisis-center/crisis-center-home/crisis-center-home.component';
-import { CrisisDetailComponent } from './crisis-center/crisis-detail/crisis-detail.component';
-import { CrisisListComponent } from './crisis-center/crisis-list/crisis-list.component';
 import {Router} from "@angular/router";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FormsModule} from "@angular/forms";
 import {HeroesModule} from "./heroes/heroes.module";
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
+import {AuthModule} from "./auth/auth.module";
 
 @NgModule({
   declarations: [
@@ -25,12 +22,17 @@ import { ComposeMessageComponent } from './compose-message/compose-message.compo
     BrowserAnimationsModule,
     FormsModule,
     HeroesModule,
-    AppRoutingModule
+    AuthModule,
+    AppRoutingModule,
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+  // Diagnostic only: inspect router configuration
   constructor(router: Router) {
+    // Use a custom replacer to display function names in the route configs
+    // const replacer = (key,value) => (typeof value === 'function') ? value.name : value;
+
+    // console.log('Routes: ', JSON.stringify(router.config, replacer, 2));
   }
 }
