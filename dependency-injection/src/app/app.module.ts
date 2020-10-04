@@ -8,6 +8,7 @@ import { CarComponent } from './car/car.component';
 import { InjectorComponent } from './injector.component';
 import {Logger} from "./logger.service";
 import {UserService} from "./user.service";
+import {ProvidersModule} from "./providers.module";
 
 @NgModule({
   declarations: [
@@ -19,10 +20,11 @@ import {UserService} from "./user.service";
   ],
   imports: [
     BrowserModule,
+    ProvidersModule
   ],
   providers: [
     Logger,
-    UserService
+    UserService,
   ],
   bootstrap: [AppComponent],
   exports: [ CarComponent]

@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {HeroService} from "./heroes/hero.service";
 import {HeroListComponent} from "./heroes/hero-list.component";
 
 @Component({
   selector: 'app-test',
-  templateUrl: './test.component.html',
-  styleUrls: ['./test.component.css']
+  template:`
+  <h2>Tests</h2>
+  <p id="tests">Tests {{results.pass}}: {{results.message}}</p>`
 })
+
 export class TestComponent {
+  results = runTests();
 }
 
+///////////////////////////////
 function runTests() {
 
   const expectedHeroes = [{name: 'A'}, {name: 'B'}]

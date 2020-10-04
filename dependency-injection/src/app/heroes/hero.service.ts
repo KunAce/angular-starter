@@ -9,7 +9,8 @@ import {Logger} from "../logger.service";
 })
 export class HeroService {
 
-  constructor(private logger: Logger) { }
+  constructor(private logger: Logger,
+              private isAuthorized: boolean) { }
 
   getHeroes() {
     this.logger.log('Getting heroes ...');
